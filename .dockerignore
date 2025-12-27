@@ -1,0 +1,10 @@
+.dart_tool/
+.packages
+.pub/
+build/
+.git/
+.gitignore
+Dockerfile
+.dockerignore
+README.md
+*.md

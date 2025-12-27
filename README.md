@@ -32,6 +32,22 @@ jaspr build
 
 The output will be located inside the `build/jaspr/` directory.
 
+### Running with Docker
+
+You can also run this project using Docker. We use a multi-stage Dockerfile that builds the project and serves it using Nginx.
+
+1.  **Build the Docker image**:
+    ```bash
+    docker build -t my-jaspr-website .
+    ```
+
+2.  **Run the container**:
+    ```bash
+    docker run -d -p 8080:80 my-jaspr-website
+    ```
+
+The website will be available at `http://localhost:8080`.
+
 ---
 
 ## 🏗️ Project Structure
