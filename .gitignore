@@ -1,0 +1,33 @@
+# https://dart.dev/guides/libraries/private-files
+
+# Files and directories created by pub.
+.dart_tool/
+.packages
+.pub/
+build/
+# If you're building a package, then you should exclude pubspec.lock from git.
+# Since this is a website (app), we keep it.
+# pubspec.lock
+
+# IDE and editor files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.history
+.buildlog/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Jaspr specific (if any beyond standard dart)
+lib/*.options.dart
+lib/main.client.options.dart
+lib/main.server.options.dart
