@@ -1,4 +1,4 @@
-# Stage 1: Build the Jaspr site
+# Stage 1: Build
 FROM dart:stable AS build
 
 # Install jaspr_cli
@@ -17,16 +17,24 @@ RUN dart pub get
 # Copy the rest of the application code
 COPY . .
 
-# Build the project
-RUN jaspr build
+# Build for server mode
+RUN jaspr build --verbose
 
-# Stage 2: Serve the static files using Nginx
-FROM nginx:alpine
+# Stage 2: Run
+FROM scratch
 
-# Copy the build output from the build stage to nginx's serving directory
-COPY --from=build /app/build/jaspr /usr/share/nginx/html
+# Copy the runtime dependencies (like SSL certs) if needed, 
+# although for a simple jaspr server, the binary might be sufficient.
+# However, Jaspr's server build produces a binary and a 'web' folder for assets.
+COPY --from=build /runtime/ /
+COPY --from=build /app/build/jaspr/ /app/
 
-# Expose port 80
-EXPOSE 80
+# Set the working directory
+WORKDIR /app
 
-CMD ["nginx", "-g", "daemon off;"]
+# Expose port 8080 (Cloud Run default)
+EXPOSE 8080
+
+# Start the server
+# The jaspr build in server mode creates an executable named 'app' by default in the output dir
+CMD ["./app"]
