@@ -219,7 +219,7 @@ class RSVPSection extends StatelessComponent {
       p([text('We would love to have you with us.')]),
       a(
         classes: 'cta-button rsvp-button',
-        href: 'https://wa.me/918709328224?text=Hi%20Sandeep,%20I%20will%20be%20attending%20the%20wedding!',
+        href: 'https://wa.me/917983873235?text=Hi%20Sandeep,%20I%20will%20be%20attending%20the%20wedding!',
         target: Target.blank,
         [text('Confirm Presence via WhatsApp')],
       ),
