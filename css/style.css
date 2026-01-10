@@ -363,6 +363,19 @@ img {
 	img {
 		max-width: 30%;
 	}
+
+	.wrap {
+		margin-top: 150px;
+	}
+
+	#guest-greeting {
+		margin-top: 20px;
+	}
+
+	.title h1 {
+		font-size: 45px;
+		margin: 20px 0;
+	}
 }
 
 .top-right-decoration {

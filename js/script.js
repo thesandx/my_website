@@ -42,13 +42,13 @@
         }
 
         // Update Meta tags and Title for link preview
-        document.title = `Hi ${firstName}! You're invited to Anudeep's Wedding`;
+        document.title = `Anudeep's Wedding Invitation to ${firstName}!`;
         
         const metaTitle = document.querySelector('meta[property="og:title"]');
-        if (metaTitle) metaTitle.setAttribute('content', `Hi ${firstName}! You're invited to Anudeep's Wedding`);
+        if (metaTitle) metaTitle.setAttribute('content', `Anudeep's Wedding Invitation to ${firstName}!`);
 
         const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-        if (twitterTitle) twitterTitle.setAttribute('content', `Hi ${firstName}! You're invited to Anudeep's Wedding`);
+        if (twitterTitle) twitterTitle.setAttribute('content', `Anudeep's Wedding Invitation to ${firstName}!`);
     }
 
 })(jQuery);
