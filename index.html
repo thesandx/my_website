@@ -26,6 +26,25 @@
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Dancing+Script&amp;display=swap'>
       <link rel="stylesheet" href="./css/style.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
+         .venue {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+         }
+         .venue img {
+            width: 20px;
+            margin-right: 8px;
+         }
+         .rsvp-btn {
+            background-color: #25d366 !important;
+         }
+         .maps-btn {
+            background-color: #ffffff !important;
+            color: #4285F4 !important;
+            border: 1px solid #e0e0e0;
+         }
+      </style>
    </head>
    <body>
       <!-- partial:index.partial.html -->
@@ -50,16 +69,22 @@
       </p>
       <div class="actions">
         <a href="https://maps.app.goo.gl/Ek5VHxyC6qYr2sW86?g_st=ipc" target="_blank">
-          <div class="venue">SEE THE VENUE</div>
+          <div class="venue maps-btn">
+            <img src="assets/img/google-maps.png" alt="Maps">
+            SEE THE VENUE
+          </div>
         </a>
         <a href="https://wa.me/917983873235?text=Hi%20Sandeep,%20I%20will%20be%20attending%20the%20wedding!" target="_blank">
-          <div class="venue">RSVP NOW</div>
+          <div class="venue rsvp-btn">
+            <img src="assets/img/whatsapp.png" alt="WhatsApp">
+            RSVP NOW
+          </div>
         </a>
       </div>
       
       <p class="footer">
          Can't wait to celebrate auspicious moment of our family with you! <br>
-         Just a ping away for any queries: +91 7983873235
+         Just a ping away for any queries: <br> +91 7983873235
          <span></span>
       </p>
       <div class="music">
