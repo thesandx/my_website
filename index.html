@@ -27,17 +27,47 @@
       <link rel="stylesheet" href="./css/style.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <style>
+         .rsvp-request {
+            font-family: 'Arvo', serif;
+            font-size: 1.1em;
+            color: #564861;
+            margin: 20px 0 10px;
+            text-align: center;
+            max-width: 300px;
+            line-height: 1.4;
+         }
+         #countdown-message {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5em;
+            color: #674ea7;
+            margin-bottom: 15px;
+            text-align: center;
+         }
          .venue {
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            min-width: 200px;
+            margin: 10px 0;
+         }
+         .venue:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
          }
          .venue img {
             width: 20px;
-            margin-right: 8px;
+            margin-right: 10px;
          }
          .rsvp-btn {
             background-color: #25d366 !important;
+            color: #fff !important;
          }
          .maps-btn {
             background-color: #ffffff !important;
@@ -115,12 +145,13 @@
             <h1>Anushka </h1>
             <h2>&</h2>
             <h1>Sandeep</h1>
-            <h3>Are getting married</h3>
+            <h3>With hearts full of joy, we invite you to our wedding</h3>
             <p>
-               on <span class="date">9 March 2026</span></29>, At <span class="place">Laxmisagar</span> Darbhanga, Bihar               
+               on <span class="date">9 March 2026</span>, At <span class="place">Laxmisagar</span>, Darbhanga, Bihar               
             </p>
          </div>
       </div>
+      <div id="countdown-message">Our forever starts in...</div>
       <div id="time"></div>
       <p class="dance-med">
 
@@ -129,9 +160,12 @@
         <a href="https://maps.app.goo.gl/Ek5VHxyC6qYr2sW86?g_st=ipc" target="_blank">
           <div class="venue maps-btn">
             <img src="assets/img/google-maps.png" alt="Maps">
-            SEE THE VENUE
+            WEDDING VENUE
           </div>
         </a>
+        <div class="rsvp-request">
+           We'd love to have you with us! Please kindly confirm your presence so we can ensure comfortable hotel arrangements for your stay.
+        </div>
         <a href="https://wa.me/917983873235?text=Hi%20Sandeep,%20I%20will%20be%20attending%20the%20wedding!" target="_blank">
           <div class="venue rsvp-btn">
             <img src="assets/img/whatsapp.png" alt="WhatsApp">
@@ -141,8 +175,9 @@
       </div>
       
       <p class="footer">
-         Can't wait to celebrate auspicious moment of our family with you! <br>
-         Just a ping away for any queries: <br> +91 7983873235
+         Can't wait to celebrate the auspicious milestone of our family journey with you! <br>
+         Just a ping away for any queries: <br> 
+         <a href="tel:+917983873235" class="phone">+91 7983873235</a>
          <span></span>
       </p>
       <div class="music">
@@ -164,7 +199,7 @@
               </svg>
             </div>
             <h3>Step 1: Arrive</h3>
-            <p>Darbhanga Airport (DBR) or Darbhanga Junction Railway Station.</p>
+            <p>Darbhanga Airport (DBR) or Darbhanga Junction Railway Station (DBG).</p>
           </div>
           <div class="step">
             <div class="step-icon">
@@ -178,7 +213,10 @@
         </div>
       </section>
 
-      <p class="happiness">Join us in our happiness!<br></p>
+      <p class="happiness">
+         Join us in our happiness!<br>
+         Your presence will mean the world to us as we celebrate this special day.
+      </p>
       <!-- partial -->
       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
       <script src='https://cdn.jsdelivr.net/gh/timoschaefer/jQuery-Sakura/jquery-sakura.min.js'></script>

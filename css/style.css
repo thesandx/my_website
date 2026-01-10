@@ -466,9 +466,13 @@ body {
 	width: auto;
 	height: auto;
 	padding: 20px;
-	background-color: #eee;
+	background: rgba(255, 255, 255, 0.4);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
 	border-radius: 20px;
 	font-size: 16px;
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
 }
 
 .venue {
@@ -488,20 +492,34 @@ body {
 }
 
 .container {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	border-radius: 10px;
 	overflow: hidden;
+	flex-wrap: nowrap;
 }
 
 .block {
-	width: 180px;
-	height: 160px;
+	flex: 1;
+	min-width: 80px;
+	height: 80px;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	color: #fff;
+	font-size: 14px;
+	line-height: 1.2;
+}
+
+@media (max-width: 600px) {
+	.block {
+		min-width: 60px;
+		height: 70px;
+		font-size: 12px;
+	}
 }
 
 .days {
@@ -521,12 +539,12 @@ body {
 }
 
 .date {
-	color: #874562;
+	color: #d4af37; /* Gold accent */
 	font-weight: 900;
 }
 
 .place {
-	color: #874562;
+	color: #d4af37; /* Gold accent */
 	font-weight: 900;
 }
 
@@ -574,6 +592,8 @@ a {
 
 .actions {
 	display: flex;
+	flex-direction: column;
+	align-items: center;
 	font-size: 12px;
 	letter-spacing: 0pt;
 }
