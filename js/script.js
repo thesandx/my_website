@@ -59,10 +59,17 @@
 
 })(jQuery);
 
-
-$(document).on('click', function(){
-    document.getElementById("my_audio").play();
-    console.log('Shaadi me zaroor aana');
+$(window).on('load', function() {
+    const audio = document.getElementById("my_audio");
+    if (audio) {
+        audio.play().catch(error => {
+            console.log("Autoplay was prevented. Music will play on first click.");
+            // Fallback: play on first click if autoplay is blocked
+            $(document).one('click', function() {
+                audio.play();
+            });
+        });
+    }
 });
 
 // Set the date we're counting down to
