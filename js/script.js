@@ -49,6 +49,12 @@
 
         const twitterTitle = document.querySelector('meta[name="twitter:title"]');
         if (twitterTitle) twitterTitle.setAttribute('content', `Anudeep's Wedding Invitation to ${firstName}!`);
+
+        const description = document.querySelector('meta[name="description"]');
+        if (description) description.setAttribute('content', `Hi ${firstName}, with the divine grace of the almighty, inviting you and your family to Sandeep and Anushka's wedding to be held on 9th March`);
+
+        const og_description = document.querySelector('meta[property="og:description"]');
+        if (og_description) og_description.setAttribute('content', `Hi ${firstName}, with the divine grace of the almighty, inviting you and your family to Sandeep and Anushka's wedding to be held on 9th March`);     
     }
 
 })(jQuery);
