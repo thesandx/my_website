@@ -92,7 +92,7 @@
         #rose-container {
             display: none;
             margin: 20px auto;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
         }
 
         /* SVG Animations */
@@ -179,8 +179,18 @@
         <div id="step-8" class="hidden">
             <div id="rose-container">
                 <svg width="150" height="200" viewBox="0 0 100 150">
+                    <defs>
+                        <radialGradient id="roseGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                            <stop offset="0%" style="stop-color:#ff4d6d;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#800f2f;stop-opacity:1" />
+                        </radialGradient>
+                        <linearGradient id="stemGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#2d5a27;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#1e3f1a;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
                     <!-- Stem -->
-                    <path class="stem" d="M50,150 Q55,100 50,45" fill="none" stroke="#2d5a27" stroke-width="2.5" stroke-linecap="round" />
+                    <path class="stem" d="M50,150 Q55,100 50,45" fill="none" stroke="url(#stemGradient)" stroke-width="2.5" stroke-linecap="round" />
                     
                     <!-- Leaves -->
                     <g class="leaf">
@@ -192,17 +202,23 @@
                         <path d="M50,85 Q65,75 85,70" fill="none" stroke="#2a5225" stroke-width="0.5" />
                     </g>
                     
-                    <!-- Outer Petal Layer (Darker Red) -->
-                    <path class="petal" d="M50,50 Q20,40 30,15 Q50,0 70,15 Q80,40 50,50" fill="#b83d4c" />
-                    
-                    <!-- Middle Petal Layer (Accent Red) -->
-                    <path class="petal" d="M50,45 Q30,35 35,20 Q50,10 65,20 Q70,35 50,45" fill="#d14d5d" />
-                    
-                    <!-- Inner Petal Layer (Pinkish Tone) -->
-                    <path class="petal" d="M50,40 Q40,35 42,25 Q50,18 58,25 Q60,35 50,40" fill="#f48fb1" />
-                    
-                    <!-- Center Detail -->
-                    <circle class="petal" cx="50" cy="30" r="3" fill="#ad2a36" opacity="0.6" />
+                    <!-- Realistic Rose Top -->
+                    <g class="petal-group">
+                        <!-- Outer Base Petals -->
+                        <path class="petal" d="M50,55 Q15,50 20,25 Q50,0 80,25 Q85,50 50,55" fill="#a4133c" />
+                        <path class="petal" d="M50,55 Q20,55 15,35 Q30,10 50,25 Q70,10 85,35 Q80,55 50,55" fill="#c9184a" opacity="0.9" />
+                        
+                        <!-- Middle Petals -->
+                        <path class="petal" d="M50,50 Q30,48 28,30 Q50,15 72,30 Q70,48 50,50" fill="#ff4d6d" />
+                        <path class="petal" d="M50,48 Q35,45 35,35 Q50,25 65,35 Q65,45 50,48" fill="#ff758f" />
+                        
+                        <!-- Inner Petals/Bud -->
+                        <path class="petal" d="M50,45 Q40,43 42,35 Q50,28 58,35 Q60,43 50,45" fill="#ff85a1" />
+                        <path class="petal" d="M50,42 Q45,41 45,38 Q50,33 55,38 Q55,41 50,42" fill="#ffb3c1" />
+                        
+                        <!-- Center Swirl Detail -->
+                        <path class="petal" d="M48,37 Q50,34 52,37 Q51,39 50,37" fill="#800f2f" opacity="0.8" />
+                    </g>
                 </svg>
             </div>
             <h2>Happy Rose Day, Anushka, my love! ❤️</h2>
