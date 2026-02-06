@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise</title>
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Dancing+Script&display=swap'>
+    <style>
+        :root {
+            --bg-color: #f8f0f0;
+            --text-color: #7d4e57;
+            --accent-color: #d14d5d;
+            --secondary-color: #fce4ec;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--bg-color);
+            font-family: 'Arvo', serif;
+            color: var(--text-color);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .background-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 2.5rem;
+            border-radius: 30px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.5s ease-in-out;
+        }
+
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        p { font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.5; }
+
+        .btn-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-family: 'Arvo', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+            box-shadow: 0 4px 15px rgba(209, 77, 93, 0.3);
+        }
+
+        button.secondary {
+            background-color: #fff;
+            color: var(--text-color);
+            border: 1px solid #ddd;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background-color: #b83d4c;
+        }
+
+        button.secondary:hover {
+            background-color: #f9f9f9;
+        }
+
+        #rose-container {
+            display: none;
+            margin: 20px auto;
+        }
+
+        /* SVG Animations */
+        .stem {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 2.5s ease-in-out forwards;
+        }
+
+        .leaf {
+            opacity: 0;
+            animation: fadeIn 1s 1.8s forwards;
+        }
+
+        .petal {
+            opacity: 0;
+            animation: fadeIn 1.5s 2.2s forwards;
+        }
+
+        @keyframes draw { to { stroke-dashoffset: 0; } }
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="background-hearts" id="hearts"></div>
+
+    <div class="card">
+        <div id="step-0">
+            <h2>Hey... 🥺</h2>
+            <p>I have a little confession to make.</p>
+            <button onclick="nextStep(1)">Continue</button>
+        </div>
+
+        <div id="step-1" class="hidden">
+            <p>I often wonder, how did I get so lucky to find you? ✨</p>
+            <button onclick="nextStep(2)">Hmm...</button>
+        </div>
+
+        <div id="step-2" class="hidden">
+            <p>You make my world quiet and loud at the same time..</p>
+            <button onclick="nextStep(3)">Wait, How?</button>
+        </div>
+
+        <div id="step-3" class="hidden">
+            <p>Quiet because I feel safe with you.. 😊<br>
+            <small>💓 Loud because my heart beats faster.</small></p>
+            <button onclick="nextStep(4)">Aww...</button>
+        </div>
+
+        <div id="step-4" class="hidden">
+            <p>Do you know why flowers are jealous of you? 😳</p>
+            <button onclick="nextStep(5)">Why?</button>
+        </div>
+
+        <div id="step-5" class="hidden">
+            <h2>Because they fade.. 🥀</h2>
+            <p>But you are timeless.</p>
+            <button onclick="nextStep(6)">Next ❤️</button>
+        </div>
+
+        <div id="step-6" class="hidden">
+            <p>I wanted to give you something as beautiful as your soul.</p>
+            <button onclick="nextStep(7)">What is it?</button>
+        </div>
+
+        <div id="step-7" class="hidden">
+            <h2>Will you accept this: 🌹</h2>
+            <div class="btn-container">
+                <button onclick="nextStep(8)">Yes, I accept!</button>
+                <button class="secondary" onclick="nextStep('no')">No.. 🫣</button>
+            </div>
+        </div>
+
+        <div id="step-no" class="hidden">
+            <h2>Don't be shy...</h2>
+            <p>It's specially for you! 🥺</p>
+            <button onclick="nextStep(8)">Yes, I accept! 🌹</button>
+        </div>
+
+        <div id="step-8" class="hidden">
+            <div id="rose-container">
+                <svg width="150" height="200" viewBox="0 0 100 150">
+                    <path class="stem" d="M50,150 Q50,100 50,50" fill="none" stroke="#2d5a27" stroke-width="3" />
+                    <path class="leaf" d="M50,110 Q30,100 20,110 Q30,120 50,110" fill="#3e7d37" />
+                    <path class="leaf" d="M50,90 Q70,80 80,90 Q70,100 50,90" fill="#3e7d37" />
+                    <ellipse class="petal" cx="50" cy="40" rx="20" ry="25" fill="#d14d5d" />
+                    <ellipse class="petal" cx="50" cy="35" rx="15" ry="20" fill="#b83d4c" />
+                </svg>
+            </div>
+            <h3>Happy Rose Day! ❤️</h3>
+            <p style="font-size: 0.9rem;">"Like this rose, my love for you grows more beautiful and vibrant with each passing day."</p>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(step) {
+            // Hide all potential steps
+            const allSteps = ['0', '1', '2', '3', '4', '5', '6', '7', '8', 'no'];
+            allSteps.forEach(s => {
+                const el = document.getElementById('step-' + s);
+                if (el) el.classList.add('hidden');
+            });
+            
+            // Show the specific step
+            const currentStep = document.getElementById('step-' + step);
+            currentStep.classList.remove('hidden');
+
+            // Trigger Rose Animation
+            if (step === 8) {
+                document.getElementById('rose-container').style.display = 'block';
+            }
+        }
+
+        // Floating petals/hearts background
+        const heartsContainer = document.getElementById('hearts');
+        for (let i = 0; i < 25; i++) {
+            const heart = document.createElement('div');
+            heart.innerHTML = Math.random() > 0.5 ? '🌸' : '✨';
+            heart.style.position = 'absolute';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = Math.random() * 100 + 'vh';
+            heart.style.opacity = Math.random() * 0.4;
+            heart.style.fontSize = (Math.random() * 15 + 10) + 'px';
+            heartsContainer.appendChild(heart);
+        }
+    </script>
+</body>
+</html>
