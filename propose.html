@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Anushka ❤️</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        :root {
+            --primary-pink: #ff4d6d;
+            --soft-pink: #fff0f3;
+            --text-dark: #4a4a4a;
+            --track-color: #f1f1f1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--soft-pink);
+            /* Heart pattern background */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M20 31.35l-1.45-1.32C13.4 25.36 10 22.28 10 18.5 10 15.42 12.42 13 15.5 13c1.74 0 3.41.81 4.5 2.09C21.09 13.81 22.76 13 24.5 13 27.58 13 30 15.42 30 18.5c0 3.78-3.4 6.86-8.55 11.54L20 31.35z" fill="%23ffb3c1" opacity="0.3"/></svg>');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--text-dark);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 420px;
+            background: white;
+            padding: 40px 20px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            position: relative;
+        }
+
+        /* --- Header Styles --- */
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--primary-pink);
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        p.subtitle {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        h1.question {
+            font-weight: 600;
+            font-size: 1.8rem;
+            margin-bottom: 60px;
+        }
+
+        /* --- Custom Slider --- */
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        /* Tooltip message bubble */
+        .tooltip {
+            position: absolute;
+            top: -55px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-pink);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s, left 0.1s ease-out;
+            pointer-events: none;
+            font-weight: 500;
+        }
+
+        /* Triangle pointer for tooltip */
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 7px solid var(--primary-pink);
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 4px; /* Thin track like video */
+            background: var(--track-color);
+            border-radius: 2px;
+            outline: none;
+            position: relative;
+        }
+
+        /* Heart Thumb */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 48px;
+            height: 48px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff4d6d"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+            background-size: contain;
+            cursor: pointer;
+            border: none;
+            filter: drop-shadow(0 2px 5px rgba(255, 77, 109, 0.3));
+        }
+
+        .labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #bbb;
+        }
+
+        /* --- Success Screen --- */
+        #success-screen {
+            display: none;
+        }
+
+        .kiss-placeholder {
+            width: 100%;
+            max-width: 250px;
+            height: 200px;
+            margin: 0 auto 20px;
+            background: #fafafa;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .kiss-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .final-quote {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .couple-names {
+            font-weight: 600;
+            color: var(--primary-pink);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-story {
+            background: var(--primary-pink);
+            color: white;
+            padding: 14px 40px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(255, 77, 109, 0.3);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container" id="app">
+        
+        <div id="proposal-screen">
+            <div id="tooltip" class="tooltip">No U-turns in love! 💕</div>
+            
+            <h2>Hey Anushka...</h2>
+            <p class="subtitle">I have something to ask you...</p>
+            
+            <h1 class="question">Will you be mine forever? 💍</h1>
+
+            <div class="slider-wrapper">
+                <input type="range" id="heart-slider" min="0" max="100" value="50">
+                <div class="labels">
+                    <span>← Nooo 🙈</span>
+                    <span>Yesss ➡️</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="success-screen">
+            <div class="kiss-placeholder">
+                <img src="assets/img/kissing.gif" alt="Celebration GIF">
+            </div>
+            
+            <p class="final-quote">
+                "Are you a magician? Because your smile is illegal, and I'm officially stolen by you."
+            </p>
+            
+            
+            <button class="btn-story" onclick="">Anushka & Sandeep ✨</button>
+        </div>
+
+    </div>
+
+    <script>
+        const slider = document.getElementById('heart-slider');
+        const tooltip = document.getElementById('tooltip');
+        const proposalScreen = document.getElementById('proposal-screen');
+        const successScreen = document.getElementById('success-screen');
+
+        const rejections = [
+            "No U-turns in love! 💕",
+            "Hey... my heart only goes forward ❤️",
+            "Try the other way! 😘",
+            "Are you sure? 🥹"
+        ];
+
+        slider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            
+            // Calculate tooltip position to follow the thumb
+            // 48px is thumb width, we offset the percentage calculation slightly
+            const percent = val;
+            tooltip.style.left = `calc(${percent}% + (${24 - percent * 0.48}px))`;
+
+            if (val < 40) {
+                tooltip.style.opacity = "1";
+                // Only change text if it's currently showing a different one
+                if (parseFloat(tooltip.style.opacity) > 0.8 && Math.random() > 0.9) {
+                    tooltip.innerText = rejections[Math.floor(Math.random() * rejections.length)];
+                }
+            } else {
+                tooltip.style.opacity = "0";
+            }
+
+            if (val == 100) {
+                showSuccess();
+            }
+        });
+
+        // Snap back to middle if they let go of 'No'
+        slider.addEventListener('change', (e) => {
+            if (e.target.value < 100) {
+                e.target.value = 50;
+                tooltip.style.opacity = "0";
+            }
+        });
+
+        function showSuccess() {
+            proposalScreen.style.display = 'none';
+            successScreen.style.display = 'block';
+
+            // Confetti Celebration
+            const end = Date.now() + (3 * 1000);
+            const colors = ['#ff4d6d', '#ffb3c1', '#ffffff'];
+
+            (function frame() {
+                confetti({
+                    particleCount: 3,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: colors
+                });
+                confetti({
+                    particleCount: 3,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: colors
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+    </script>
+</body>
+</html>
