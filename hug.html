@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Hug Day, My Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-1: #fff3ee;
+            --bg-2: #ffe6f1;
+            --bg-3: #f7efff;
+            --ink: #5f4453;
+            --rose: #ff5d8f;
+            --gold: #d4a557;
+            --card: rgba(255, 255, 255, 0.82);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 8% 10%, rgba(255, 255, 255, 0.75), transparent 35%),
+                radial-gradient(circle at 92% 20%, rgba(255, 164, 188, 0.36), transparent 38%),
+                radial-gradient(circle at 50% 120%, rgba(198, 220, 255, 0.32), transparent 42%),
+                linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 22px 14px;
+        }
+
+        .float-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .float {
+            position: absolute;
+            animation-name: drift;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            opacity: 0.62;
+            user-select: none;
+        }
+
+        @keyframes drift {
+            from {
+                transform: translateY(110vh) rotate(0deg);
+            }
+            to {
+                transform: translateY(-15vh) rotate(360deg);
+            }
+        }
+
+        .page {
+            width: 100%;
+            max-width: 680px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .letter {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 18px 42px rgba(157, 85, 123, 0.16);
+            padding: 34px 22px 28px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .top-line {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #9f7d8e;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            line-height: 1.1;
+            color: var(--rose);
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: #6f4f61;
+            margin-bottom: 22px;
+        }
+
+        .gif-shell {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto 20px;
+            border-radius: 24px;
+            padding: 8px;
+            background: linear-gradient(140deg, rgba(255, 93, 143, 0.28), rgba(212, 165, 87, 0.25), rgba(138, 193, 255, 0.3));
+            box-shadow: 0 10px 26px rgba(186, 102, 135, 0.25);
+        }
+
+        .gif-shell img {
+            width: 100%;
+            display: block;
+            border-radius: 18px;
+            background: #fff;
+        }
+
+        .type-line {
+            min-height: 70px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            line-height: 1.45;
+            margin: 0 auto 20px;
+            max-width: 520px;
+            color: #6b4f5e;
+        }
+
+        .divider {
+            width: 82px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 6px auto 16px;
+            border-radius: 2px;
+        }
+
+        .note {
+            display: none;
+            animation: rise 0.7s ease forwards;
+            margin: 12px auto;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #6d5664;
+            max-width: 560px;
+            padding: 10px 14px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.55);
+        }
+
+        .note.show {
+            display: block;
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .signature {
+            display: none;
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px dashed rgba(168, 131, 148, 0.45);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .signature.show {
+            display: block;
+        }
+
+        .signature h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.1rem;
+            color: #ca4374;
+            margin-bottom: 4px;
+        }
+
+        .signature p {
+            font-size: 0.98rem;
+            color: #7a5f6d;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .glow {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 132, 171, 0.25), transparent 70%);
+            filter: blur(2px);
+            z-index: 0;
+        }
+
+        .glow.left {
+            left: -60px;
+            top: 35%;
+        }
+
+        .glow.right {
+            right: -60px;
+            top: 12%;
+        }
+
+        @media (max-width: 560px) {
+            h1 {
+                font-size: 2.4rem;
+            }
+
+            .subtitle {
+                font-size: 1.12rem;
+            }
+
+            .type-line {
+                font-size: 1.3rem;
+                min-height: 64px;
+            }
+
+            .note {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="float-layer" id="float-layer"></div>
+
+    <main class="page">
+        <div class="glow left"></div>
+        <div class="glow right"></div>
+        <section class="letter">
+
+            <h1>Happy Hug Day, Anushka</h1>
+            <p class="subtitle">Some hugs are arms. Mine is a promise.</p>
+
+            <div class="gif-shell">
+                <img src="assets/img/hug.gif" alt="Cute romantic hug moment">
+            </div>
+
+            <p class="type-line" id="type-line"></p>
+            <div class="divider"></div>
+
+            <p class="note" id="note-1">
+                In your hug, the world becomes softer. Noise fades, worries melt, and everything feels right.
+            </p>
+            <p class="note" id="note-2">
+                If I could gift you one place for life, it would be this: my chest, my arms, my forever comfort.
+            </p>
+
+            <div class="signature" id="signature">
+                <h2>Your Sandeep</h2>
+                <p>Holding you close in every heartbeat. Always.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const floatLayer = document.getElementById('float-layer');
+        const symbols = ['💗', '🤍', '🫂', '✨', '🌸', '💞'];
+
+        for (let i = 0; i < 34; i++) {
+            const el = document.createElement('span');
+            el.className = 'float';
+            el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            el.style.left = `${Math.random() * 100}%`;
+            el.style.fontSize = `${12 + Math.random() * 18}px`;
+            el.style.animationDuration = `${8 + Math.random() * 10}s`;
+            el.style.animationDelay = `${Math.random() * 7}s`;
+            floatLayer.appendChild(el);
+        }
+
+        const line = "If I could hug you right now, I would hold you gently and never rush a single second.";
+        const typeLine = document.getElementById('type-line');
+        let index = 0;
+
+        function typeWriter() {
+            if (index < line.length) {
+                typeLine.textContent += line.charAt(index);
+                index += 1;
+                setTimeout(typeWriter, 38);
+            } else {
+                revealNotes();
+            }
+        }
+
+        function revealNotes() {
+            const note1 = document.getElementById('note-1');
+            const note2 = document.getElementById('note-2');
+            const note3 = document.getElementById('note-3');
+            const signature = document.getElementById('signature');
+
+            setTimeout(() => note1.classList.add('show'), 250);
+            setTimeout(() => note2.classList.add('show'), 1200);
+            setTimeout(() => note3.classList.add('show'), 2200);
+            setTimeout(() => signature.classList.add('show'), 3300);
+        }
+
+        typeWriter();
+    </script>
+</body>
+</html>
