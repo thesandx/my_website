@@ -238,10 +238,6 @@
         margin: 10px 0 0;
       }
 
-      .nine p {
-        font-size: 2rem;
-        font-weight: lighter;
-      }
 
       #replay {
         z-index: 3;
@@ -307,10 +303,6 @@
           font-size: 1.4rem;
         }
 
-        .nine p {
-          font-size: 1.5rem;
-          font-weight: lighter;
-        }
       }
     </style>
   </head>
@@ -420,7 +412,7 @@
         name: "Anushka",
         greetingText: "I love you soooo soooo much 😘😘",
         wishText:
-          "Aankhon me teri Ajab si Ajab si aadae hai, Dil ko bna de malang ye teri wo hawayeinn hai",
+          "Aankhon me teri Ajab si Ajab si aadae hai, Dil ko bna de jo patang saansein ye teri wo hawayeinn hai",
         imagePath: "assets/img/vector.jpeg",
       };
 
@@ -687,21 +679,7 @@
             opacity: 0,
             y: 30,
             zIndex: "-1",
-          })
-          .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
-          .to(
-            ".last-smile",
-            0.5,
-            {
-              rotation: 90,
-            },
-            "+=1"
-          );
-
-        const replyBtn = document.getElementById("replay");
-        replyBtn.addEventListener("click", function () {
-          tl.restart();
-        });
+          });
       }
 
       applyCustomization(customData);
