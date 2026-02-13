@@ -26,6 +26,12 @@ server {
         try_files /hug.html =404;
     }
 
+    location = /valentine {
+        root /usr/share/nginx/html;
+        default_type text/html;
+        try_files /valentine.html =404;
+    }
+
     error_page 500 502 503 504 /50x.html;
     location = /50x.html {
         root /usr/share/nginx/html;
