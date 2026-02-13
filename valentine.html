@@ -123,12 +123,19 @@
         display: inline-block;
       }
 
+      .wish-hbd .line-1,
+      .wish-hbd .line-2 {
+        display: block;
+        margin: 0;
+      }
+
       .idea-6 span {
         font-size: 15rem;
       }
 
       .six {
         position: relative;
+        text-align: center;
       }
 
       .six img {
@@ -346,7 +353,10 @@
       <div class="six">
         <img src="assets/img/vector.jpeg" alt="Profile" class="girl-dp" id="imagePath" />
         <div class="wish">
-          <h3 class="wish-hbd">Happy Valentine's Day Gorgeous</h3>
+          <h3 class="wish-hbd">
+            <span class="line-1">Happy Valentine's Day</span>
+            <span class="line-2">Gorgeous</span>
+          </h3>
           <h5 id="wishText">
             Aankhon me teri Ajab si Ajab si aadae hai, Dil ko bna de jo patang saansein ye teri wo hawayeinn hai
           </h5>
@@ -426,13 +436,17 @@
 
       function animationTimeline() {
         const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
-        const hbd = document.getElementsByClassName("wish-hbd")[0];
+        const hbdLine1 = document.querySelector(".wish-hbd .line-1");
+        const hbdLine2 = document.querySelector(".wish-hbd .line-2");
 
         textBoxChars.innerHTML =
           "<span>" + textBoxChars.innerHTML.split("").join("</span><span>") + "</span>";
 
-        hbd.innerHTML =
-          "<span>" + hbd.innerHTML.split("").join("</span><span>") + "</span>";
+        hbdLine1.innerHTML =
+          "<span>" + hbdLine1.innerHTML.split("").join("</span><span>") + "</span>";
+
+        hbdLine2.innerHTML =
+          "<span>" + hbdLine2.innerHTML.split("").join("</span><span>") + "</span>";
 
         const ideaTextTrans = {
           opacity: 0,
@@ -630,7 +644,7 @@
               skewX: "30deg",
               ease: Elastic.easeOut.config(1, 0.5),
             },
-            0.1
+            0.075
           )
           .staggerFromTo(
             ".wish-hbd span",
@@ -645,7 +659,7 @@
               color: "#ff69b4",
               ease: Expo.easeOut,
             },
-            0.1,
+            0.075,
             "party"
           )
           .from(
